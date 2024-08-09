@@ -147,7 +147,48 @@
                 </div>
               </div>
 
-              <div id="customPretty"></div>
+              <div id="customPretty">
+                <div class="form-floating m-3">
+                  <input class="form-control" id="prettyDateVal" placeholder="4d">
+                  <label for="prettyDateVal">Time Since Last Online:</label>
+                </div>
+                <div class="form-floating m-3">
+                  <input class="form-control" id="prettyLocVal" placeholder="Greece">
+                  <label for="prettyLocVal">Location:</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgePredCheckbox">
+                  <label class="form-check-label" for="badgePredCheckbox">Pred</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgePreyCheckbox">
+                  <label class="form-check-label" for="badgePreyCheckbox">Prey</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgePermCheckbox">
+                  <label class="form-check-label" for="badgePermCheckbox">Permanent Digestion</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgeMultCheckbox">
+                  <label class="form-check-label" for="badgeMultCheckbox">Multiple People Vore</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgeSoloCheckbox">
+                  <label class="form-check-label" for="badgeSoloCheckbox">Solo Vore</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgeSoftCheckbox">
+                  <label class="form-check-label" for="badgeSoftCheckbox">Soft Vore</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgeOralCheckbox">
+                  <label class="form-check-label" for="badgeOralCheckbox">Oral</label>
+                </div>
+                <div class="form-check-inline m-3">
+                  <input class="form-check-input" type="checkbox" id="badgeButtCheckbox">
+                  <label class="form-check-label" for="badgeButtCheckbox">Anal Vore</label>
+                </div>
+              </div>
 
               <div class="centerContent">
                 <button id="downloadContent" class="btn btn-success m-2">Download Image</button>
@@ -157,17 +198,31 @@
                 <div id="prettyCard" style="position: relative;">
                   <div class="card card-cover text-bg-dark rounded-4 shadow-lg">
                     <img class="card card-cover text-bg-dark rounded-4 shadow-lg THISNEEDSANIMAGE" style="z-index: 0;" src="https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                    <div style="z-index: 1;position: absolute;bottom: 0;left: 0;" class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold THISISACAPTION">Much longer title that wraps to multiple lines</h3>
-                      <ul class="d-flex list-unstyled mt-auto">
+                    <div style="z-index: 1;position: absolute;bottom: 0;left: 0;width: 100%;" class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                      <h3 class="pt-5 mt-auto display-6 lh-1 fw-bold THISISACAPTION">I want you!</h3>
+                      <ul class="d-flex list-unstyled">
                         <li class="d-flex align-items-center me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                          <small>Greece</small>
+                          <small id="prettyLocation">Greece</small>
                         </li>
                         <li class="d-flex align-items-center">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                          <small>4d</small>
+                          <small id="prettyTime">2hr</small>
                         </li>
+                      </ul>
+                      <div style="width: 100%;display: flex;flex-direction: row;justify-content: space-around;">
+                        <button class="btn btn-success rounded-5 btn-lg">Gurgle</button>
+                        <button class="btn btn-danger rounded-5 btn-lg">Pass</button>
+                      </div>
+                      <ul class="d-flex list-unstyled mb-0 mt-2 flex-row flex-wrap bg-black bg-gradient bg-opacity-25 rounded-3 justify-content-around">
+                        <li><span id="badgePred" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-primary">Pred</span></li>
+                        <li><span id="badgePrey" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-secondary">Prey</span></li>
+                        <li><span id="badgeOral" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-success">Oral Vore</span></li>
+                        <li><span id="badgePerm" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-danger">Digestion Permanent</span></li>
+                        <li><span id="badgeMult" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-warning">Will Eat Multiple</span></li>
+                        <li><span id="badgeSolo" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-info">Solo Stomach</span></li>
+                        <li><span id="badgeSoft" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-light">Soft Vore</span></li>
+                        <li><span id="badgeButt" style="display: none;" class="badge m-1 bg-opacity-100 rounded-pill text-bg-dark">Anal Vore</span></li>
                       </ul>
                     </div>
                   </div>
