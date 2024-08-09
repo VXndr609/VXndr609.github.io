@@ -17,7 +17,91 @@ const newsColor = document.getElementById("myColor");
 const newsDate = document.getElementById("floatingNewsDate");
 const newsDateOut = document.getElementById("newsDateOut");
 const newsSectionOut = document.getElementById("myColorEffected");
+const prettyLocation = document.getElementById("prettyLocation");
+const prettyTime = document.getElementById("prettyTime");
+const prettyTimeVal = document.getElementById("prettyDateVal");
+const prettyLocVal = document.getElementById("prettyLocVal");
+const badgePredDisplay = document.getElementById("badgePred");
+const badgePredCheckbox = document.getElementById("badgePredCheckbox");
+const badgePreyDisplay = document.getElementById("badgePrey");
+const badgePreyCheckbox = document.getElementById("badgePreyCheckbox");
+const badgeOralDisplay = document.getElementById("badgeOral");
+const badgeOralCheckbox = document.getElementById("badgeOralCheckbox");
+const badgePermDisplay = document.getElementById("badgePerm");
+const badgePermCheckbox = document.getElementById("badgePermCheckbox");
+const badgeMultDisplay = document.getElementById("badgeMult");
+const badgeMultCheckbox = document.getElementById("badgeMultCheckbox");
+const badgeSoloDisplay = document.getElementById("badgeSolo");
+const badgeSoloCheckbox = document.getElementById("badgeSoloCheckbox");
+const badgeSoftDisplay = document.getElementById("badgeSoft");
+const badgeSoftCheckbox = document.getElementById("badgeSoftCheckbox");
+const badgeButtDisplay = document.getElementById("badgeButt");
+const badgeButtCheckbox = document.getElementById("badgeButtCheckbox");
 let captionStyle = 0;
+
+badgePredCheckbox.addEventListener("change", function() {
+    if (badgePredCheckbox.checked) {
+        badgePredDisplay.style.display = "block";
+    } else {
+        badgePredDisplay.style.display = "none";
+    }
+});
+badgePreyCheckbox.addEventListener("change", function() {
+    if (badgePreyCheckbox.checked) {
+        badgePreyDisplay.style.display = "block";
+    } else {
+        badgePreyDisplay.style.display = "none";
+    }
+});
+badgeOralCheckbox.addEventListener("change", function() {
+    if (badgeOralCheckbox.checked) {
+        badgeOralDisplay.style.display = "block";
+    } else {
+        badgeOralDisplay.style.display = "none";
+    }
+});
+badgePermCheckbox.addEventListener("change", function() {
+    if (badgePermCheckbox.checked) {
+        badgePermDisplay.style.display = "block";
+    } else {
+        badgePermDisplay.style.display = "none";
+    }
+});
+badgeMultCheckbox.addEventListener("change", function() {
+    if (badgeMultCheckbox.checked) {
+        badgeMultDisplay.style.display = "block";
+    } else {
+        badgeMultDisplay.style.display = "none";
+    }
+});
+badgeSoloCheckbox.addEventListener("change", function() {
+    if (badgeSoloCheckbox.checked) {
+        badgeSoloDisplay.style.display = "block";
+    } else {
+        badgeSoloDisplay.style.display = "none";
+    }
+});
+badgeSoftCheckbox.addEventListener("change", function() {
+    if (badgeSoftCheckbox.checked) {
+        badgeSoftDisplay.style.display = "block";
+    } else {
+        badgeSoftDisplay.style.display = "none";
+    }
+});
+badgeButtCheckbox.addEventListener("change", function() {
+    if (badgeButtCheckbox.checked) {
+        badgeButtDisplay.style.display = "block";
+    } else {
+        badgeButtDisplay.style.display = "none";
+    }
+});
+
+prettyTimeVal.addEventListener("change", function() {
+    prettyTime.innerText = prettyTimeVal.value;
+});
+prettyLocVal.addEventListener("change", function() {
+    prettyLocation.innerText = prettyLocVal.value;
+});
 
 newsColor.addEventListener("focusout", function() {
     console.log("RAR");
