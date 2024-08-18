@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vore Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Comfortaa:wght@300..700&family=Indie+Flower&display=swap" rel="stylesheet">
+    <style defer>
+        body {
+            background-color: rgb(12, 12, 12);
+            color: antiquewhite;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1 {
+            font-family: "Comfortaa", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            letter-spacing: 0.15em;
+            width: 100%;
+            text-align: center;
+        }
+        .center {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        #screenData {
+            width: 80%;
+            border-radius: 1.5em;
+            position: relative;
+        }
+        #subject {
+            width: 100%;
+            border-radius: 1.5em;
+            z-index: 0;
+        }
+        #info {
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        #nameText {
+            text-align: left;
+            padding: 0;
+            margin-bottom: 0.125em;
+            padding-left: 0.5em;
+        }
+        #descriptionBox {
+            background: black;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0) 100%);
+            border-bottom-left-radius: 1.5em;
+            border-bottom-right-radius: 1.5em;
+            padding: 1em;
+            padding-top: 2em;
+        }
+        #descriptionText {
+            font-family: "Beiruti", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            padding: 1em;
+            padding-top: 0;
+            margin: 0;
+        }
+        #badges {
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-bottom: 0.5em;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .inputData {
+            background-color: rgb(25, 25, 25);
+            color: whitesmoke;
+            padding: 0.2em;
+            border-radius: 1em;
+            box-sizing: border-box;
+            margin-bottom: 1em;
+        }
+        #addTag {
+            margin-left: 0.5em;
+            background-color: rgb(25, 25, 25);
+            color: antiquewhite;
+            border-radius: 0.5em;
+        }
+        #capture {
+            padding-top: 1em;
+        }
+        .badge {
+            width: max-content;
+            padding: 0.2em;
+            border-radius: 1em;
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        table {
+            width: max-content;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>VoreLog Generator Alpha</h1>
+    <p>Please enter your info into the following fields to generate the log below. After you have finished, you can save the page below as an image either by screenshotting from the bottom of the page to the white horizontal divider or by capturing the center node with developer tools!</p>
+    <input type="file" class="inputData" id="inputFile">
+    <br>
+    <label for="InputIMGLINK">Image Upload Link:</label>
+    <input class="inputData" id ="InputIMGLINK" type="text" placeholder="https://google.com/sexyImage.png" style="width: 100%;">
+    <br>
+    <label for="Inputname">Name:</label>
+    <input class="inputData" id ="Inputname" type="text" placeholder="Sarah Kim" style="width: 100%;">
+    <br>
+    <label for="Inputdescription">Description:</label> <br>
+    <textarea class="inputData" id ="Inputdescription" style="width: 100%; margin-top: 0.5em; height: 20vh;" placeholder="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."></textarea>
+    <br>
+    <label for="InputTags">Add Tags Here:</label>
+    <input class="inputData" id ="InputTags" type="text"><button id="addTag">Add Tag</button>
+    <p>Note: To delete a tag, just tap/click on it</p>
+    <hr>
+    <div id="capture">
+        <h1>VoreLog</h1>
+        <div class="center">
+            <div id="screenData">
+                <img id="subject" loading="lazy" src="https://images.pexels.com/photos/323244/pexels-photo-323244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <div id="info">
+                    <div id="descriptionBox">
+                        <h1 id="nameText">Sara Kim</h1>
+                        <div id="badges">
+                        </div>
+                        <p id="descriptionText">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let tagNumber = 0;
+    function genNumb(min, val, max) {
+        let newVal = Math.abs(val);
+        while ((newVal < min) || (newVal > max)) {
+            if (newVal > max) {
+                newVal = newVal / 2;
+            } else if (newVal < min) {
+                newVal = newVal * 2;
+            }
+            console.log(newVal);
+        }
+        return newVal;
+    }
+    document.getElementById("Inputname").addEventListener("change", function() {
+        document.getElementById("nameText").textContent = document.getElementById("Inputname").value;
+    });
+    document.getElementById("Inputdescription").addEventListener("change", function() {
+        document.getElementById("descriptionText").textContent = document.getElementById("Inputdescription").value;
+    });
+    document.getElementById("addTag").addEventListener("click", function() {
+        let newBadge = document.createElement("div");
+        newBadge.id = "BADGETAG" + tagNumber;
+        newBadge.classList.add("badge");
+        newBadge.textContent = structuredClone(document.getElementById("InputTags").value);
+        let s = structuredClone(document.getElementById("InputTags").value);
+        let seed = 0;
+        for(let i = 0; i < s.length; i++){
+            let code = s.charCodeAt(i);
+            seed = seed + Number(code);
+        }
+        newBadge.addEventListener("click", function() {
+            newBadge.remove();
+        });
+        document.getElementById("badges").appendChild(newBadge);
+        newBadge.style.backgroundColor = "hsl(" + genNumb(0, seed, 359) + ", 80%, 40%)";
+        tagNumber = tagNumber + 1;
+    });
+    document.getElementById("InputIMGLINK").addEventListener("change", function() {
+        document.getElementById("subject").src = document.getElementById("InputIMGLINK").value;
+    });
+    document.getElementById('inputFile').addEventListener("change", function(evt) {
+        var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+    
+    // FileReader support
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById("subject").src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+    }
+    else {
+        alert("An error occurred. Womp womp");
+    }
+    });
+</script>
+</html>
