@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHJL776QJC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-DHJL776QJC');
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -17,11 +8,27 @@
     <meta name="rating" content="adult">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script defer src="index.js"></script>
+    <script defer src="waitingRoom.js"></script>
     <title>Find a Pred</title>
-    <!-- Favicons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 
     
   </head>
@@ -46,29 +53,12 @@
       </div>
     </div>
   </div>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Checkout</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Find a Pred</a></li>
-            <li><a href="reformationPlan.html" class="text-white">Reformation Options</a></li>
-            <li><a href="acidRedux.html" class="text-white">Discover more about the Medical Development of Acid Reduction Pills</a> <span class="badge bg-success">New</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <span class="material-symbols-outlined">menu_book</span>
-        <strong>Matches</strong>
+        <span class="material-symbols-outlined">emoji_transportation</span>
+        <strong>Waiting Room</strong>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </div>
   </div>
 </header>
@@ -78,21 +68,23 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">You've Got Matches!</h1>
-        <p class="lead text-muted">You've matched with some preds on the site! You can now go and Find a Pred℠ and have some fun. Make sure that you choose a reformation option because permenant digestion is the default.</p>
-        <p>
-        </p>
+        <h1 class="fw-light">Your Order is in Transit!</h1>
+        <p class="lead text-muted">Our Find a Pred℠ system will have a pred at your location very soon! Please wait here for pred to arrive at your location.</p>
+        <p class="p-1" id="message1"></p>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Your Time Remaining</h5>
+              <h3 class="card-text m-3" id="timeRemaining">30 Minutes</h4>
+              <div class="spinner-border m-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <p class="card-text" id="quickTip">Quick Tip: You can find good tips here!</p>
+              <div id="buttonLocation"></div>
+            </div>
+          </div>
       </div>
     </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="cardStack">
-
-        </div>
-    </div>
-  </div>
 
 </main>
 
@@ -101,8 +93,13 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">You better choose before someone grabs you and eats you right off of your computer!</p>
+    <p class="mb-1">You better get ready before someone grabs you and eats you right off of your computer!</p>
   </div>
 </footer>
+
+
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      
   </body>
 </html>

@@ -1,215 +1,54 @@
-const inputGroupFile01 = document.getElementById("inputGroupFile01");
-const preview = document.getElementById("imageGoesHere");
-const captSelect = document.getElementById("exampleSelect");
-const prettyCard = document.getElementById("prettyCard");
-const defaultCard = document.getElementById("defaultCard");
-const newsCard = document.getElementById("newsCard");
-const customPretty = document.getElementById("customPretty");
-const customDefault = document.getElementById("customDefault");
-const customNews = document.getElementById("customNews");
-const title = document.getElementById("floatingTitle");
-const titlerarXD = document.getElementById("rarXD");
-const caption = document.getElementById("floatingPassword");
-const defaultCTA1 = document.getElementById("floatingCTA1");
-const defaultCTA2 = document.getElementById("floatingCTA2");
-const newsSect = document.getElementById("floatingNewsSec");
-const newsColor = document.getElementById("myColor");
-const newsDate = document.getElementById("floatingNewsDate");
-const newsDateOut = document.getElementById("newsDateOut");
-const newsSectionOut = document.getElementById("myColorEffected");
-const prettyLocation = document.getElementById("prettyLocation");
-const prettyTime = document.getElementById("prettyTime");
-const prettyTimeVal = document.getElementById("prettyDateVal");
-const prettyLocVal = document.getElementById("prettyLocVal");
-const badgePredDisplay = document.getElementById("badgePred");
-const badgePredCheckbox = document.getElementById("badgePredCheckbox");
-const badgePreyDisplay = document.getElementById("badgePrey");
-const badgePreyCheckbox = document.getElementById("badgePreyCheckbox");
-const badgeOralDisplay = document.getElementById("badgeOral");
-const badgeOralCheckbox = document.getElementById("badgeOralCheckbox");
-const badgePermDisplay = document.getElementById("badgePerm");
-const badgePermCheckbox = document.getElementById("badgePermCheckbox");
-const badgeMultDisplay = document.getElementById("badgeMult");
-const badgeMultCheckbox = document.getElementById("badgeMultCheckbox");
-const badgeSoloDisplay = document.getElementById("badgeSolo");
-const badgeSoloCheckbox = document.getElementById("badgeSoloCheckbox");
-const badgeSoftDisplay = document.getElementById("badgeSoft");
-const badgeSoftCheckbox = document.getElementById("badgeSoftCheckbox");
-const badgeButtDisplay = document.getElementById("badgeButt");
-const badgeButtCheckbox = document.getElementById("badgeButtCheckbox");
-let captionStyle = 0;
-
-badgePredCheckbox.addEventListener("change", function() {
-    if (badgePredCheckbox.checked) {
-        badgePredDisplay.style.display = "block";
-    } else {
-        badgePredDisplay.style.display = "none";
-    }
-});
-badgePreyCheckbox.addEventListener("change", function() {
-    if (badgePreyCheckbox.checked) {
-        badgePreyDisplay.style.display = "block";
-    } else {
-        badgePreyDisplay.style.display = "none";
-    }
-});
-badgeOralCheckbox.addEventListener("change", function() {
-    if (badgeOralCheckbox.checked) {
-        badgeOralDisplay.style.display = "block";
-    } else {
-        badgeOralDisplay.style.display = "none";
-    }
-});
-badgePermCheckbox.addEventListener("change", function() {
-    if (badgePermCheckbox.checked) {
-        badgePermDisplay.style.display = "block";
-    } else {
-        badgePermDisplay.style.display = "none";
-    }
-});
-badgeMultCheckbox.addEventListener("change", function() {
-    if (badgeMultCheckbox.checked) {
-        badgeMultDisplay.style.display = "block";
-    } else {
-        badgeMultDisplay.style.display = "none";
-    }
-});
-badgeSoloCheckbox.addEventListener("change", function() {
-    if (badgeSoloCheckbox.checked) {
-        badgeSoloDisplay.style.display = "block";
-    } else {
-        badgeSoloDisplay.style.display = "none";
-    }
-});
-badgeSoftCheckbox.addEventListener("change", function() {
-    if (badgeSoftCheckbox.checked) {
-        badgeSoftDisplay.style.display = "block";
-    } else {
-        badgeSoftDisplay.style.display = "none";
-    }
-});
-badgeButtCheckbox.addEventListener("change", function() {
-    if (badgeButtCheckbox.checked) {
-        badgeButtDisplay.style.display = "block";
-    } else {
-        badgeButtDisplay.style.display = "none";
-    }
-});
-
-prettyTimeVal.addEventListener("change", function() {
-    prettyTime.innerText = prettyTimeVal.value;
-});
-prettyLocVal.addEventListener("change", function() {
-    prettyLocation.innerText = prettyLocVal.value;
-});
-
-newsColor.addEventListener("focusout", function() {
-    console.log("RAR");
-    newsSectionOut.style.color = newsColor.value;
-});
-newsSect.addEventListener("change", function() {
-    newsSectionOut.textContent = newsSect.value;
-});
-newsDate.addEventListener("change", function() {
-    newsDateOut.textContent = newsDate.value;
-});
-
-document.getElementById('inputGroupFile01').onchange = function (evt) {
-    var tgt = evt.target || window.event.srcElement,
-        files = tgt.files;
-    
-    // FileReader support
-    if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-            let elements = document.getElementsByClassName("THISNEEDSANIMAGE");
-            for (let i=0; i < elements.length;i++) {
-                elements[i].src = fr.result;
-            }
-        }
-        fr.readAsDataURL(files[0]);
-    }
-    else {
-        alert("An error occurred. Womp womp");
-    }
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+let name = cname + "=";
+let decodedCookie = decodeURIComponent(document.cookie);
+let ca = decodedCookie.split(';');
+for(let i = 0; i <ca.length; i++) {
+  let c = ca[i];
+  while (c.charAt(0) == ' ') {
+    c = c.substring(1);
+  }
+  if (c.indexOf(name) == 0) {
+    return c.substring(name.length, c.length);
+  }
+}
+return "";
 }
 
-defaultCTA1.addEventListener("change", function(){
-    document.getElementById("THISISACTA1").textContent = defaultCTA1.value;
-});
-defaultCTA2.addEventListener("change", function(){
-    document.getElementById("THISISACTA2").textContent = defaultCTA2.value;
-});
-
-document.getElementById("downloadContent").addEventListener("click", function() {
-    html2canvas(document.querySelector("#capture"), {
-        windowWidth: document.querySelector("#capture").scrollWidth,
-        windowHeight: document.querySelector("#capture").scrollHeight,
-        width: document.querySelector("#capture").width,
-        height: document.querySelector("#capture").height,
-        scale: window.devicePixelRatio
-    }).then(canvas => {
-        // document.body.appendChild(canvas);
-        let link = document.createElement("a");
-        link.href = structuredClone(canvas.toDataURL("image/png"));
-        link.download = document.getElementById("floatingInput").value;
-        link.click();
+fetch('dataset.json')
+  .then((response) => response.json())
+  .then((json) => {
+    cardStack = document.getElementById("cardStack");
+    for (pred in json['Preds']) {
+      console.log(json['Preds'][pred]);
+      if (Object.keys(json['Preds'][pred]).includes('Index Text')) {
+        cardStack.innerHTML = cardStack.innerHTML + "<div class=\"col\"><div class=\"card shadow-sm\"><img src=\" " + json['Preds'][pred]["Photo Link"] + " \"><div class=\"card-body\"><p class=\"card-text\">" + json['Preds'][pred]['Index Text'] +"</p><div class=\"d-flex justify-content-between align-items-center\"><div class=\"btn-group\"><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" id=\"L\'Kenna Zumini\" data-bs-toggle=\"modal\" data-bs-target=\"#staticBackdrop\">Contact!</button></div></div></div></div></div>";
+      } else {
+        cardStack.innerHTML = cardStack.innerHTML + "<div class='col'><div class='card shadow-sm'><img src='" + json['Preds'][pred]["Photo Link"] + "'><div class='card-body'><p class='card-text'>Hi, my name is " + json['Preds'][pred]["Name"] + " and I'm " + json['Preds'][pred]["Age"] + ". I'm a pred from " + json['Preds'][pred]["Lives"] + " and I work as a " + json['Preds'][pred]["Profession"] + " at " + json['Preds'][pred]["Place of Work"] + ". " + json['Preds'][pred]["Index Hook"] + ".</p><div class='d-flex justify-content-between align-items-center'><div class='btn-group'><button type='button' class='btn btn-sm btn-outline-secondary' id='" + json['Preds'][pred]["Name"] + "'data-bs-toggle='modal' data-bs-target='#staticBackdrop'>Contact!</button></div></div></div></div></div>";
+      }
+    }
+    var buttons = document.getElementsByClassName("btn-outline-secondary");
+  var checkoutList = [];
+    
+  for (var i = 0; i < buttons.length; i++) {
+    var button = buttons[i];
+    console.log(button.id);
+    button.addEventListener("click", function(e) {
+        checkoutList.push(e.target.id);
+        console.log(e.target.id);
+        setCookie("People", JSON.stringify(checkoutList), 2);
     });
-});
-
-title.addEventListener("change", function() {
-    let elements = document.getElementsByClassName("THISISATITLE");
-    for (let i=0; i < elements.length;i++) {
-        elements[i].textContent = title.value;
-    }
-});
-
-caption.addEventListener("change", function() {
-    let elements = document.getElementsByClassName("THISISACAPTION");
-    for (let i=0; i < elements.length;i++) {
-        elements[i].textContent = caption.value;
-    }
-});
-
-captSelect.addEventListener("change", function() {
-    if (captSelect.value == "0") { // Default
-        captionStyle = 0;
-        prettyCard.style.display = "none";
-        defaultCard.style.display = "block";
-        newsCard.style.display = "none";
-
-        customPretty.style.display = "none";
-        customDefault.style.display = "block";
-        customNews.style.display = "none";
-
-        titlerarXD.style.display = "block";
-    } else if (captSelect.value == "1") { // Pretty
-        captionStyle = 1;
-        prettyCard.style.display = "block";
-        defaultCard.style.display = "none";
-        newsCard.style.display = "none";
-
-        customPretty.style.display = "block";
-        customDefault.style.display = "none";
-        customNews.style.display = "none";
-
-        titlerarXD.style.display = "none";
-    } else if (captSelect.value == "2") { // News Article
-        captionStyle = 2;
-        prettyCard.style.display = "none";
-        defaultCard.style.display = "none";
-        newsCard.style.display = "block"
-        
-        customPretty.style.display = "none";
-        customDefault.style.display = "none";
-        customNews.style.display = "block";
-
-        titlerarXD.style.display = "block";
-    }
-});
-
-document.getElementById("dropZone").addEventListener("drop", function(event) {
-    event.preventDefault();
-    console.log("Dawg");
-    document.getElementById("outPic").src = URL.createObjectURL(event.dataTransfer.files[0]);
+  }
+  
+  document.getElementById("packages").addEventListener("click", function(){
+  if (checkoutList.length > 0) {
+    window.location.href = "reformationPlan.html";
+  }
+  })
+  
 });
